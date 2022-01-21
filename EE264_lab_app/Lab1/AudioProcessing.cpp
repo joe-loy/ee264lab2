@@ -76,7 +76,7 @@ void AudioProcessing::processAudio(int16_t *outputData,
         
         // ---> Your code here! - Lab 2.1
         // Copy data from tempData to outputData array
-        for (int i = 0; i < fileNumExtraSamples; i++) {
+        for (int i = 0; i < fileNumSamples; i++) {
             outputData[i] = tempData[i];  
         }
     }
@@ -120,8 +120,15 @@ int AudioProcessing::fileNumSamplesNeededFor(int outputNumSamples) {
 
     // Lab 2
     fileNumSamplesNeeded = 0;
-    if (((outputNumSamples * fileDownSampleFactor) % fileUpSampleFactor) == 0)
+    if (((outputNumSamples * fileDownSampleFactor) % fileUpSampleFactor) == 0) { 
         fileNumSamplesNeeded = outputNumSamples * fileDownSampleFactor / fileUpSampleFactor;
+        if (!(fileUpSampleFactor * (outputNumSamples / fileUpSampleFactor) + fileExtraSamples >= outputNumSamples)) {
+            fileNumSamplesNeeded += fileDownSampleFactor    
+        }
+    }
+    else {
+        fileNumSamplesNeeded = outputNumSamples * fileDownSampleFactor / fileUpSampleFactor;  
+    }
         
     return(fileNumSamplesNeeded);
 }
