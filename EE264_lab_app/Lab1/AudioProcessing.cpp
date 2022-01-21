@@ -72,7 +72,11 @@ void AudioProcessing::processAudio(int16_t *outputData,
         // ---> Your code here! - Lab 2.2
         // Keep track of extra samples produced
         // Hint: update fileNumExtraSamples data member
-        fileNumExtraSamples += (fileNumSamplesNeeded * fileUpSampleFactor / fileDownSampleFactor) - fileNumSamples; 
+        fileNumExtraSamples += (fileNumSamplesNeeded * fileUpSampleFactor / fileDownSampleFactor) - fileNumSamples;
+        
+        for (int i = 0; i < fileNumExtraSamples; i++) {
+            fileExtraSamples[i] = tempData[outputNumSamples + i];
+        }
         
         // ---> Your code here! - Lab 2.1
         // Copy data from tempData to outputData array
@@ -86,7 +90,7 @@ void AudioProcessing::processAudio(int16_t *outputData,
         // Your code here! - Lab 1.2
         // Add the mic data to the output buffer (outputData)
         // Hint: Properly scale the data to avoid overflow
-        for (int i = 0; i < fileNumSamples; i++) {
+        for (int i = 0; i < outputNumSamples; i++) {
             outputData[i] = (micData[i] >> 2) + (outputData[i] >> 2);
         }
     }
