@@ -37,7 +37,7 @@ void ZeroOrderHoldInterp::filter(int16_t *outputData,
         tempData[i] = tempData[i*M]              
     }
     
-    for(int n = 0; n < inputNumSamples * upSampleFactor / downSampleFactor; n++) {
-        outputData[n] = tempData[n];
+    for(int i = 0; i < inputNumSamples * upSampleFactor / downSampleFactor; i++) {
+        outputData[i] = tempData[i];
     }
 }
