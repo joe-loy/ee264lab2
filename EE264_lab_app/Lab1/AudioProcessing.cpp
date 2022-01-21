@@ -62,7 +62,8 @@ void AudioProcessing::processAudio(int16_t *outputData,
         // ---> Your code here! - Lab 2
         // Copy extra samples to beginning of tempData array, if needed - Lab 2.2
         for (int n = 0; n < fileNumExtraSamples; n++) {
-            tempData[n] = fileExtraSamples[n]; 
+            tempData[n] = fileExtraSamples[n];
+            fileExtraSamples[n] = 0;
         }
         
         // Zero-order hold interpolation filter - Lab 2.1
@@ -71,8 +72,7 @@ void AudioProcessing::processAudio(int16_t *outputData,
         // ---> Your code here! - Lab 2.2
         // Keep track of extra samples produced
         // Hint: update fileNumExtraSamples data member
-        int D = fileNumSamplesNeededFor(fileNumSamples);
-        fileNumExtraSamples += (D * fileUpSampleFactor / fileDownSampleFactor) - fileNumSamples; 
+        fileNumExtraSamples += (fileNumSamplesNeeded * fileUpSampleFactor / fileDownSampleFactor) - fileNumSamples; 
         
         // ---> Your code here! - Lab 2.1
         // Copy data from tempData to outputData array
@@ -87,8 +87,7 @@ void AudioProcessing::processAudio(int16_t *outputData,
         // Add the mic data to the output buffer (outputData)
         // Hint: Properly scale the data to avoid overflow
         for (int i = 0; i < fileNumSamples; i++) {
-            int32_t acc = fileData[i] + *micData;
-            outputData[i] = acc >> 1;
+            outputData[i] = (micData[i] >> 2) + (outputData[i] >> 2);
         }
     }
     
@@ -124,14 +123,19 @@ int AudioProcessing::fileNumSamplesNeededFor(int outputNumSamples) {
 
     // Lab 2
     fileNumSamplesNeeded = 0;
-    if (((outputNumSamples * fileDownSampleFactor) % fileUpSampleFactor) == 0) { 
-        fileNumSamplesNeeded = outputNumSamples * fileDownSampleFactor / fileUpSampleFactor;
-        if (!(fileUpSampleFactor * (outputNumSamples / fileUpSampleFactor) + fileExtraSamples >= (int16_t*)outputNumSamples)) {
-            fileNumSamplesNeeded += fileDownSampleFactor;
-        }
-    }
-    else {
+    
+    // In this case, there are no extra samples needed
+    if ((outputNumSamples * fileDownSampleFactor) % fileUpSampleFactor == 0) {
         fileNumSamplesNeeded = outputNumSamples * fileDownSampleFactor / fileUpSampleFactor;  
+    }
+    // In this case, we must determine the number of extra samples to add
+    else {
+        if (fileUpSampleFactor * (outputNumSamples / fileUpSampleFactor) + fileNumExtraSamples >= outputNumSamples) {
+            fileNumSamplesNeeded = outputNumSamples / fileUpSampleFactor * fileDownSampleFactor;  
+        } 
+        else {
+            fileNumSamplesNeeded = outputNumSamples / fileUpSampleFactor * fileDownSampleFactor + fileDownSampleFactor;      
+        }
     }
         
     return(fileNumSamplesNeeded);
