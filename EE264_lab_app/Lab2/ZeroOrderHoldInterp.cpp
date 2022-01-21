@@ -18,7 +18,7 @@ void ZeroOrderHoldInterp::filter(int16_t *outputData,
     // size of the temp array is compared before upSample and is not performed if it cannot 
     // fit into the temp array. This means are samples are limited to lengths of 8192 samples. 
     
-    if (maxDataArraySize >= inputNumSamples * upSampleFactor) { 
+    if (inputNumSamples * upSampleFactor <= maxDataArraySize) {
         for(int i = 0; i < inputNumSamples; i++) {
             for (int j = 0; j < upSampleFactor; j++) {
                 tempData[i * upSampleFactor + j] = inputData[i];
@@ -29,9 +29,9 @@ void ZeroOrderHoldInterp::filter(int16_t *outputData,
 
     // Downsample output of zero-order hold filter - Lab 2.3
  
-    for (int i = 0; i < inputNumSamples * upSampleFactor;  i++) {
-        if (i % downSampleFactor == 0) {
-            outputData[i / downSampleFactor] = tempData[i];  
+    for (int k = 0; k < inputNumSamples * upSampleFactor;  k++) {
+        if (k % downSampleFactor == 0) {
+            outputData[k / downSampleFactor] = tempData[k];
         }    
     }
     

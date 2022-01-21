@@ -94,15 +94,18 @@ void AudioProcessing::processAudio(int16_t *outputData,
     // Test button pressed
     if (test == true) {
         // Uncomment the line below (and cout.close() statement below) to send output to a file
-        // std::ofstream cout("/tmp/test_data.txt");
+        std::ofstream cout("/tmp/test_data.txt");
 
         cout << "AudioProcessing::Test button pressed!\n";
         cout << "Mode = " << mode << "\n";
         
         // ---> Your code here! - Lab 1.3
+        if (mode == 1 || mode == 2) {
+            debug(mode, outputNumSamples, outputData, micData, fileData);
         
+        }
         // Uncomment the line below (and "ofstream cout" statement above) to send output to a file
-        // cout.close();
+        cout.close();
     }
     
     // Debug - Lab 1.3
@@ -131,10 +134,10 @@ int AudioProcessing::fileNumSamplesNeededFor(int outputNumSamples) {
     // In this case, we must determine the number of extra samples to add
     else {
         if (fileUpSampleFactor * (outputNumSamples / fileUpSampleFactor) + fileNumExtraSamples >= outputNumSamples) {
-            fileNumSamplesNeeded = outputNumSamples / fileUpSampleFactor * fileDownSampleFactor;  
+            fileNumSamplesNeeded = (outputNumSamples / fileUpSampleFactor) * fileDownSampleFactor;
         } 
         else {
-            fileNumSamplesNeeded = outputNumSamples / fileUpSampleFactor * fileDownSampleFactor + fileDownSampleFactor;      
+            fileNumSamplesNeeded = (outputNumSamples / fileUpSampleFactor) * fileDownSampleFactor + fileDownSampleFactor;
         }
     }
         
@@ -142,3 +145,24 @@ int AudioProcessing::fileNumSamplesNeededFor(int outputNumSamples) {
 }
 
 // ---> Your code here! - Lab 1.3
+void AudioProcessing::debug(int mode, int outputNumSamples, int16_t* outputData, const int16_t* micData, const int16_t* fileData) {
+    
+    std::cout << "AudioProcessing::Test button pressed!\n";
+    std::cout << "Mode = " << mode << "\n";
+    
+    if (mode == 1) {
+        for (int i = 0; i < outputNumSamples; i++) {
+            std::cout << callCount << "\t" << i << "\t" << micData[i] << "\t" << fileData[i] << "\t" << outputData[i] << "\t" << std::endl;
+        }
+        
+    }
+    
+    else if (mode == 2) {
+        std::ofstream cout("/tmp/debug.txt");
+        for (int i = 0; i < outputNumSamples; i++) {
+            cout << callCount << "\t" << i << "\t" << micData[i] << "\t" << fileData[i] << "\t" << outputData[i] << "\n";
+        }
+        cout.close();
+    }
+
+}

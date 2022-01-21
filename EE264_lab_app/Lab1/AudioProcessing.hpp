@@ -86,6 +86,9 @@ public:
                       int mode);
     
     
+    void debug(int mode, int outputNumSamples, int16_t* outputData, const int16_t* micData, const int16_t* fileData);
+
+    
     /**
      This function returns the number of samples to read from the audio file such that,
      after interpolation, the number of samples equals N, i.e.,
