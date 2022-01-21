@@ -20,8 +20,14 @@ void ZeroOrderHoldInterp::filter(int16_t *outputData,
     
     // Upsample input data and apply zero-order hold filter - Lab 2.1
     // Hint: use tempData array and check that is large enough to hold upsampled data
-    for(int i = 0; i < inputNumSamples * upSampleFactor; i++) {
-        
+    
+    for(int i = 0; i < inputNumSamples; i++) {
+        if (sizeof(tempData) > inputNumSamples * upSampleFactor) {
+            for (int j = 0; j < upSampleFactor; j++) {
+                tempData[i * upSampleFactor + j] = inputData[i]    
+            }
+        }
+           
     }
 
     // Downsample output of zero-order hold filter - Lab 2.3
