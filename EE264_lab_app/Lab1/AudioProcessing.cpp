@@ -72,7 +72,7 @@ void AudioProcessing::processAudio(int16_t *outputData,
         // ---> Your code here! - Lab 2.2
         // Keep track of extra samples produced
         // Hint: update fileNumExtraSamples data member
-        fileNumExtraSamples += (fileNumSamplesNeeded * fileUpSampleFactor / fileDownSampleFactor) - fileNumSamples;
+        fileNumExtraSamples += (fileNumSamplesNeeded * fileUpSampleFactor / fileDownSampleFactor) - outputNumSamples;
         
         for (int i = 0; i < fileNumExtraSamples; i++) {
             fileExtraSamples[i] = tempData[outputNumSamples + i];
