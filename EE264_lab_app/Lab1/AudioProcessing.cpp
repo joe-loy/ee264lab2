@@ -62,7 +62,7 @@ void AudioProcessing::processAudio(int16_t *outputData,
         // ---> Your code here! - Lab 2
         // Copy extra samples to beginning of tempData array, if needed - Lab 2.2
         for (int n = 0; n < fileNumExtraSamples; n++) {
-            tempData[n] = fileData[n]; 
+            tempData[n] = fileExtraSamples[n]; 
         }
         
         // Zero-order hold interpolation filter - Lab 2.1
@@ -71,11 +71,12 @@ void AudioProcessing::processAudio(int16_t *outputData,
         // ---> Your code here! - Lab 2.2
         // Keep track of extra samples produced
         // Hint: update fileNumExtraSamples data member
-        fileNumExtraSamples += fileNumSamples;
+        int D = fileNumSamplesNeededFor(fileNumSamples);
+        fileNumExtraSamples += (D * fileUpSampleFactor / fileDownSampleFactor) - fileNumSamples; 
         
         // ---> Your code here! - Lab 2.1
         // Copy data from tempData to outputData array
-        for (int i = 0; i < fileNumSamples; i++) {
+        for (int i = 0; i < fileNumExtraSamples; i++) {
             outputData[i] = tempData[i];  
         }
     }
