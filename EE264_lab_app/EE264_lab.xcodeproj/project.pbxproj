@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8D99060A279A9F3F0004A6B7 /* tone_250_3000.caf in Resources */ = {isa = PBXBuildFile; fileRef = 8D990601279A9F3E0004A6B7 /* tone_250_3000.caf */; };
+		8D99060B279A9F3F0004A6B7 /* tone_500_3000.caf in Resources */ = {isa = PBXBuildFile; fileRef = 8D990602279A9F3F0004A6B7 /* tone_500_3000.caf */; };
+		8D99060C279A9F3F0004A6B7 /* tone_250_32000.caf in Resources */ = {isa = PBXBuildFile; fileRef = 8D990603279A9F3F0004A6B7 /* tone_250_32000.caf */; };
+		8D99060D279A9F3F0004A6B7 /* tone_250_16000.caf in Resources */ = {isa = PBXBuildFile; fileRef = 8D990604279A9F3F0004A6B7 /* tone_250_16000.caf */; };
+		8D99060E279A9F3F0004A6B7 /* tone_500_16000.caf in Resources */ = {isa = PBXBuildFile; fileRef = 8D990605279A9F3F0004A6B7 /* tone_500_16000.caf */; };
+		8D99060F279A9F3F0004A6B7 /* tone_1000_32000.caf in Resources */ = {isa = PBXBuildFile; fileRef = 8D990606279A9F3F0004A6B7 /* tone_1000_32000.caf */; };
+		8D990610279A9F3F0004A6B7 /* tone_1000_16000.caf in Resources */ = {isa = PBXBuildFile; fileRef = 8D990607279A9F3F0004A6B7 /* tone_1000_16000.caf */; };
+		8D990611279A9F3F0004A6B7 /* tone_500_32000.caf in Resources */ = {isa = PBXBuildFile; fileRef = 8D990608279A9F3F0004A6B7 /* tone_500_32000.caf */; };
+		8D990612279A9F3F0004A6B7 /* tone_1000_3000.caf in Resources */ = {isa = PBXBuildFile; fileRef = 8D990609279A9F3F0004A6B7 /* tone_1000_3000.caf */; };
 		A001AA981FDA1300003F11BA /* CPP-Wrapper.mm in Sources */ = {isa = PBXBuildFile; fileRef = A001AA971FDA1300003F11BA /* CPP-Wrapper.mm */; };
 		D4025AB921FEBE83004FC5EE /* AudioProcessing.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D4025A9121FE316A004FC5EE /* AudioProcessing.cpp */; };
 		D40DE62A201B09DF00B20AB7 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D40DE629201B09DF00B20AB7 /* Accelerate.framework */; };
@@ -31,6 +40,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8D990601279A9F3E0004A6B7 /* tone_250_3000.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = tone_250_3000.caf; path = ../matlab/tone_generator/tone_250_3000.caf; sourceTree = "<group>"; };
+		8D990602279A9F3F0004A6B7 /* tone_500_3000.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = tone_500_3000.caf; path = ../matlab/tone_generator/tone_500_3000.caf; sourceTree = "<group>"; };
+		8D990603279A9F3F0004A6B7 /* tone_250_32000.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = tone_250_32000.caf; path = ../matlab/tone_generator/tone_250_32000.caf; sourceTree = "<group>"; };
+		8D990604279A9F3F0004A6B7 /* tone_250_16000.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = tone_250_16000.caf; path = ../matlab/tone_generator/tone_250_16000.caf; sourceTree = "<group>"; };
+		8D990605279A9F3F0004A6B7 /* tone_500_16000.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = tone_500_16000.caf; path = ../matlab/tone_generator/tone_500_16000.caf; sourceTree = "<group>"; };
+		8D990606279A9F3F0004A6B7 /* tone_1000_32000.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = tone_1000_32000.caf; path = ../matlab/tone_generator/tone_1000_32000.caf; sourceTree = "<group>"; };
+		8D990607279A9F3F0004A6B7 /* tone_1000_16000.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = tone_1000_16000.caf; path = ../matlab/tone_generator/tone_1000_16000.caf; sourceTree = "<group>"; };
+		8D990608279A9F3F0004A6B7 /* tone_500_32000.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = tone_500_32000.caf; path = ../matlab/tone_generator/tone_500_32000.caf; sourceTree = "<group>"; };
+		8D990609279A9F3F0004A6B7 /* tone_1000_3000.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = tone_1000_3000.caf; path = ../matlab/tone_generator/tone_1000_3000.caf; sourceTree = "<group>"; };
 		A001AA971FDA1300003F11BA /* CPP-Wrapper.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = "CPP-Wrapper.mm"; sourceTree = "<group>"; };
 		A001AA991FDA132A003F11BA /* CPP-Wrapper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CPP-Wrapper.h"; sourceTree = "<group>"; };
 		D4025A9121FE316A004FC5EE /* AudioProcessing.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = AudioProcessing.cpp; sourceTree = "<group>"; };
@@ -159,6 +177,15 @@
 		D470DBA01FC50158009BA2CE = {
 			isa = PBXGroup;
 			children = (
+				8D990601279A9F3E0004A6B7 /* tone_250_3000.caf */,
+				8D990604279A9F3F0004A6B7 /* tone_250_16000.caf */,
+				8D990603279A9F3F0004A6B7 /* tone_250_32000.caf */,
+				8D990602279A9F3F0004A6B7 /* tone_500_3000.caf */,
+				8D990605279A9F3F0004A6B7 /* tone_500_16000.caf */,
+				8D990608279A9F3F0004A6B7 /* tone_500_32000.caf */,
+				8D990609279A9F3F0004A6B7 /* tone_1000_3000.caf */,
+				8D990607279A9F3F0004A6B7 /* tone_1000_16000.caf */,
+				8D990606279A9F3F0004A6B7 /* tone_1000_32000.caf */,
 				D4EF8D2823B85BAB00D284B2 /* EE264_lab.entitlements */,
 				D44346C4200A995900144AF2 /* Lab1 */,
 				D41B4C462249D6C400B12921 /* Lab2 */,
@@ -273,6 +300,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8D99060A279A9F3F0004A6B7 /* tone_250_3000.caf in Resources */,
+				8D99060B279A9F3F0004A6B7 /* tone_500_3000.caf in Resources */,
+				8D99060C279A9F3F0004A6B7 /* tone_250_32000.caf in Resources */,
+				8D99060D279A9F3F0004A6B7 /* tone_250_16000.caf in Resources */,
+				8D99060E279A9F3F0004A6B7 /* tone_500_16000.caf in Resources */,
+				8D99060F279A9F3F0004A6B7 /* tone_1000_32000.caf in Resources */,
+				8D990610279A9F3F0004A6B7 /* tone_1000_16000.caf in Resources */,
+				8D990611279A9F3F0004A6B7 /* tone_500_32000.caf in Resources */,
+				8D990612279A9F3F0004A6B7 /* tone_1000_3000.caf in Resources */,
 				D436ACE12255DB68007AB99B /* tone_250_48000.caf in Resources */,
 				D436ACE22255DB68007AB99B /* tone_500_48000.caf in Resources */,
 				D4AA9875235A8FB9002FF75E /* 1024.png in Resources */,

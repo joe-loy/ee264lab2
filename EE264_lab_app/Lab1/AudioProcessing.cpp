@@ -86,6 +86,10 @@ void AudioProcessing::processAudio(int16_t *outputData,
         // Your code here! - Lab 1.2
         // Add the mic data to the output buffer (outputData)
         // Hint: Properly scale the data to avoid overflow
+        for (int i = 0; i < fileNumSamples; i++) {
+            int32_t acc = fileData[i] + *micData;
+            outputData[i] = acc >> 1;
+        }
     }
     
     // Test button pressed
@@ -122,8 +126,8 @@ int AudioProcessing::fileNumSamplesNeededFor(int outputNumSamples) {
     fileNumSamplesNeeded = 0;
     if (((outputNumSamples * fileDownSampleFactor) % fileUpSampleFactor) == 0) { 
         fileNumSamplesNeeded = outputNumSamples * fileDownSampleFactor / fileUpSampleFactor;
-        if (!(fileUpSampleFactor * (outputNumSamples / fileUpSampleFactor) + fileExtraSamples >= outputNumSamples)) {
-            fileNumSamplesNeeded += fileDownSampleFactor    
+        if (!(fileUpSampleFactor * (outputNumSamples / fileUpSampleFactor) + fileExtraSamples >= (int16_t*)outputNumSamples)) {
+            fileNumSamplesNeeded += fileDownSampleFactor;
         }
     }
     else {
