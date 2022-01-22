@@ -29,10 +29,8 @@ void ZeroOrderHoldInterp::filter(int16_t *outputData,
 
     // Downsample output of zero-order hold filter - Lab 2.3
  
-    for (int k = 0; k < inputNumSamples * upSampleFactor;  k++) {
-        if (k % downSampleFactor == 0) {
-            outputData[k / downSampleFactor] = tempData[k];
-        }    
+    for (int k = 0; k < inputNumSamples * upSampleFactor / downSampleFactor;  k++) {
+        outputData[k] = tempData[k * downSampleFactor];
     }
     
     
