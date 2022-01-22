@@ -170,3 +170,7 @@ void AudioProcessing::debug(int mode, int outputNumSamples, int16_t* outputData,
     }
 
 }
+/* The audible distortion that can be heard, particularly with L = 16 case, is a result of the non zero attenuation that 
+ * becomes significant at high enough upsample rates. 
+ * Comments for questions 2 and 3 are in the zeroorderholdfilter file
+ */
