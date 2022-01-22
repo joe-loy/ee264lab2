@@ -91,7 +91,7 @@ void AudioProcessing::processAudio(int16_t *outputData,
         // Add the mic data to the output buffer (outputData)
         // Hint: Properly scale the data to avoid overflow
         for (int i = 0; i < outputNumSamples; i++) {
-            outputData[i] = (micData[i] >> 2) + (outputData[i] >> 2);
+            outputData[i] = (micData[i] >> 1) + (outputData[i] >> 1);
         }
     }
     
