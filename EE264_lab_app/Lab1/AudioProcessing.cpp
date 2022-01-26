@@ -61,9 +61,11 @@ void AudioProcessing::processAudio(int16_t *outputData,
     if (fileNumSamples > 0) {
         // ---> Your code here! - Lab 2
         // Copy extra samples to beginning of tempData array, if needed - Lab 2.2
-        for (int n = 0; n < fileNumExtraSamples; n++) {
-            tempData[n] = fileExtraSamples[n];
-            fileExtraSamples[n] = 0;
+        if (fileNumSamplesNeededFor(outputNumSamples)) {
+            for (int n = 0; n < fileNumExtraSamples; n++) {
+            	tempData[n] = fileExtraSamples[n];
+            	fileExtraSamples[n] = 0;
+            }
         }
         
         // Zero-order hold interpolation filter - Lab 2.1
