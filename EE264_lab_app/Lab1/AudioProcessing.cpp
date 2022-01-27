@@ -67,6 +67,7 @@ void AudioProcessing::processAudio(int16_t *outputData,
             	fileExtraSamples[n] = 0;
             }
         }
+       
         
         // Zero-order hold interpolation filter - Lab 2.1
         zeroOrderHoldInterp.filter(&tempData[fileNumExtraSamples], fileData, fileNumSamples, fileUpSampleFactor, fileDownSampleFactor);
@@ -82,7 +83,7 @@ void AudioProcessing::processAudio(int16_t *outputData,
         
         // ---> Your code here! - Lab 2.1
         // Copy data from tempData to outputData array
-        for (int i = 0; i < fileNumSamples; i++) {
+        for (int i = 0; i < outputNumSamples; i++) {
             outputData[i] = tempData[i];  
         }
     }
